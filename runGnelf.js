@@ -1,7 +1,7 @@
 const fs = require("fs");
 const time = Date.now()
 const text = fs.readFileSync("./output.gnelf", "utf8").split `\n`.map(a => a.replace(/^\s+|\s+$/gm, '')).filter(a => a);
-const oof = fs.readFileSync("./data.txt", "utf8").split `\n`.map(a => a.replace(/^\s+|\s+$/gm, '')).filter(a => a);
+const data = fs.readFileSync("./data.txt", "utf8").split `\n`.map(a => a.replace(/^\s+|\s+$/gm, '')).filter(a => a);
 
 class RegisterOP {
   constructor(register) {
@@ -118,8 +118,8 @@ class RegisterOP {
   getr(a, b, c) {
     if (!(a < 10n && c < 10n)) return null;
     const register = [...this.register];
-    register[c] = oof[registers[a]];
-    if (b >= 0) register[c] = BigInt(oof[registers[a]] ? (oof[registers[a]][registers[b]] ? oof[registers[a]][registers[b]].charCodeAt(0) : 0) : 0);
+    register[c] = data[registers[a]];
+    if (b >= 0) register[c] = BigInt(data[registers[a]] ? (data[registers[a]][registers[b]] ? data[registers[a]][registers[b]].charCodeAt(0) : 0) : 0);
     return register;
   }
 }
