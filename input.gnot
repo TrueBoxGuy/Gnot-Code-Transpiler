@@ -1,0 +1,158 @@
+reg0 = 0
+reg1 = 0
+reg2 = 0
+reg3 = 0
+reg4 = 0
+reg5 = 0
+zero = 0
+one = 1
+two = 2
+three = 3
+for (zero = 0; getr reg3 zero; zero = 0) {
+  num0 = 0
+  num1 = 0
+  num2 = 0
+  num0type = 1
+  num1type = 0
+  exponent = 1
+  firstChar = getr reg3 zero
+  secondChar = getr reg3 one
+  thirdChar = getr reg3 two
+  fourthChar = getr reg3 three
+  identifier = firstChar + secondChar + thirdChar + fourthChar
+  spaceCount = 0
+  for (charPos = 0; getr reg3 charPos; charPos = charPos + 1) {
+    zero = zero
+  }
+  for (charPos = charPos + -1; spaceCount < 3; charPos = charPos + -1) chars {
+    char = getr reg3 charPos
+    if (char == 32) {
+      spaceCount = spaceCount + 1
+      exponent = 1
+      continue chars
+    }
+    if (char == 45) {
+      if (spaceCount == 0) {
+        num2 = num2 * -1
+      }
+      if (spaceCount == 1) {
+        num1 = num1 * -1
+      }
+      if (spaceCount == 0) {
+        num1 = num1 * -1
+      }
+      continue chars
+    }
+    digit = char + -48
+    addOn = digit * exponent
+    if (spaceCount == 0) {
+      num2 = num2 + addOn
+    }
+    if (spaceCount == 1) {
+      num1 = num1 + addOn
+    }
+    if (spaceCount == 2) {
+      num0 = num0 + addOn
+    }
+    exponent = exponent * 10
+  }
+  if (thirdChar == 105) {
+    num0type = 0
+  }
+  if (identifier == 437) {
+    if (fourthChar == 105) {
+      num0type = 0
+    }
+  }
+  if (fourthChar == 114) {
+    num1type = 1
+  }
+  if (num0type == 1) {
+    cpnum = num0
+    if (cpnum == 0) {
+      num0 = reg0
+    }
+    if (cpnum == 1) {
+      num0 = reg1
+    }
+    if (cpnum == 2) {
+      num0 = reg2
+    }
+    if (cpnum == 3) {
+      num0 = reg3
+    }
+    if (cpnum == 4) {
+      num0 = reg4
+    }
+    if (cpnum == 5) {
+      num0 = reg5
+    }
+  }
+  if (num1type == 1) {
+    cpnum = num1
+    if (cpnum == 0) {
+      num1 = reg0
+    }
+    if (cpnum == 1) {
+      num1 = reg1
+    }
+    if (cpnum == 2) {
+      num1 = reg2
+    }
+    if (cpnum == 3) {
+      num1 = reg3
+    }
+    if (cpnum == 4) {
+      num1 = reg4
+    }
+    if (cpnum == 5) {
+      num1 = reg5
+    }
+  }
+  op = firstChar + secondChar
+  if (op == 197) {
+    result = num0 + num1
+  }
+  if (op == 226) {
+    result = num0 * num1
+  }
+  if (op == 195) {
+    result = num0 & num1
+  }
+  if (op == 209) {
+    result = num0 | num1
+  }
+  if (op == 216) {
+    result = num0
+  }
+  if (op == 219) {
+    result = num0 > num1
+  }
+  if (op == 214) {
+    result = num0 == num1
+  }
+  if (num2 == 0) {
+    reg0 = result
+  }
+  if (num2 == 1) {
+    reg1 = result
+  }
+  if (num2 == 2) {
+    reg2 = result
+  }
+  if (num2 == 3) {
+    reg3 = result
+  }
+  if (num2 == 4) {
+    reg4 = result
+  }
+  if (num2 == 5) {
+    reg5 = result
+  }
+  reg3 = reg3 + 1
+}
+show reg0 a
+show reg1 b
+show reg2 c
+show reg3 e
+show reg4 f
