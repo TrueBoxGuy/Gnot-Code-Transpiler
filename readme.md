@@ -1,5 +1,5 @@
 # Gnot Code Transpiler
-Gnot Code Transpiler is a project which takes in Gnot Code and converts it to [Gnelf Code](https://adventofcode.com/2018/day/19)
+Gnot Code Transpiler is a project which takes in Gnot Code and converts it to [Gnelf Code](https://adventofcode.com/2018/day/19).
 
 ## Modifications of the [AOC Specification](https://adventofcode.com/2018/day/19)
 * The use of 10 registers instead of 6 registers in order to allow more variables to be displayed on output.
@@ -38,6 +38,7 @@ A list of operators can be found here:
 ## Special Operators
 ### `getr`
 `variable = getr line position`
+
 `getr` takes in two variables/registers and sets the result value to the ASCII char code of the corresponding character in `data.txt`. If the value is out of index, the variable is set to 0.
 ### `show`
 `show variable register`
@@ -70,9 +71,9 @@ for (start = 1; start < 20; start = start + 1) tag {
 ```
 Half-open range syntax runs the loop with every value `start + n` where n is an integer and the value is larger than or equal to start and less than end.
 
-Typical for-loop syntax runs the first statement (e.g. `start = 1`) on the first run of the loop, then the third statement for all other runs. After this is done, the code is only ran if the expression is true (if it isn't, the for loop end).
+Typical for-loop syntax runs the first statement (e.g. `start = 1`) on the first run of the loop, then the third statement for all other runs. After this is done, the code is only ran if the expression is equal to 1 (if it isn't, the for loop will stop running)
 
 ### Tags and Continue Syntax
 The next iteration of a for loop can be jumped to through the use of `continue tag`, where tag is specified for a for loop between its last closing parenthesis and the first open curly-bracket.
 # Examples
-Example code can be found in `input.gnot` and `output.gnelf`.
+Example code can be found in `input.gnot` and `output.gnelf`. This is a solution to AOC Day 19 Part 1, and should take a large amount of time to run (due to the amount of operations AOC Day 19 requires.)
